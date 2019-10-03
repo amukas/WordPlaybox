@@ -10,13 +10,13 @@ public class FileAnalyzer {
 
     public static void analyze(String inputFileSrc) throws IOException {
         Map<String, Integer> wordsWithCount = new TreeMap<>();
-        BufferedReader reader = new BufferedReader(new FileReader(inputFileSrc));
+        BufferedReader reader = new BufferedReader(new FileReader(inputFileSrc)); // do you need to close reader?
         String currentLine;
 
         while ((currentLine = reader.readLine()) != null) {
 //            System.out.println(currentLine);
-            if (wordsWithCount.get(currentLine) != null) {
-                wordsWithCount.put(currentLine, wordsWithCount.get(currentLine) + 1);
+            if (wordsWithCount.get(currentLine) != null) { // it is hard to read if you extract `wordsWithCount.get(currentLine) != null` to a variable it make code more readable
+                wordsWithCount.put(currentLine, wordsWithCount.get(currentLine) + 1); // can you optimize your code, so that you call `wordsWithCount.get` one time?
             }
             else {
                 wordsWithCount.put(currentLine, 1);
